@@ -1,5 +1,5 @@
-= Coding game, 2016-12
-== Task 1: Tree construction
+# Coding game, 2016-12
+## Task 1: Tree construction
 Given a list L of values V which can be compared for equality - write a function that  traverses the list  Left to Right. 
 The output of the function is a tree T in which each node is a 3-tuple {X,V,Y} where V is the Value and X and Y are the Left and Right Nodes.
 Insertion of elements follow the following rules. 
@@ -7,21 +7,23 @@ Starting at the root node - elements greater than the current node element go LE
 Leafs have Left and Right elements of NULL.
  
 Example:
-             L = [2]
-             f(L) = {NULL, 2, NULL}
+```erlang
+             L = [2],
+             f(L) = {'NULL', 2, 'NULL'}
 
-             L = [2,4,1]
-             f(L) = { { NULL, 4, NULL}  ,2,  { NULL , 1  , NULL} }
+             L = [2,4,1],
+             f(L) = {{'NULL', 4, 'NULL'}, 2, {'NULL', 1, 'NULL'}}
  
-             L = [4,1,3,2,5]
-             f(L) =  {{NULL,5, NULL }, 4, {{ NULL,3,{ NULL,2, NULL}},1, NULL}}
-                                             
+             L = [4,1,3,2,5],
+             f(L) =  {{'NULL', 5, 'NULL'}, 4, {{'NULL', 3,{'NULL', 2, 'NULL'}}, 1, 'NULL'}}
+```                                             
  
  
-== Task 2: Neighboring interval merging
+## Task 2: Neighboring interval merging
 Given a list L of tuples {V,V} representing intervals - write a function that traverses the list, left to right and merges overlapping intervals that are neighbors. 
  
 Example:
+```erlang
           L = [ {1,5}, {3,7}, {10,14}]
           f(L) = [ {1,7}, {10,14}  ]
  
@@ -30,3 +32,4 @@ Example:
 
           L = [{1, 5}, {3, 7}, {1, 14}]
           F(L) = [{1,14}]
+```
