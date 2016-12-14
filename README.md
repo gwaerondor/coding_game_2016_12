@@ -1,4 +1,8 @@
 = Coding game, 2016-12
+
+My solution to the SBG coding game of december, 2016.
+Made to the instructions specified below.
+
 == Task 1: Tree construction
 Given a list L of values V which can be compared for equality - write a function that  traverses the list  Left to Right. 
 The output of the function is a tree T in which each node is a 3-tuple {X,V,Y} where V is the Value and X and Y are the Left and Right Nodes.
