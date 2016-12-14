@@ -1,5 +1,5 @@
-Tree construction
- 
+= Coding game, 2016-12
+== Task 1: Tree construction
 Given a list L of values V which can be compared for equality - write a function that  traverses the list  Left to Right. 
 The output of the function is a tree T in which each node is a 3-tuple {X,V,Y} where V is the Value and X and Y are the Left and Right Nodes.
 Insertion of elements follow the following rules. 
@@ -18,7 +18,7 @@ Example:
                                              
  
  
-Neighboring interval merging
+== Task 2: Neighboring interval merging
 Given a list L of tuples {V,V} representing intervals - write a function that traverses the list, left to right and merges overlapping intervals that are neighbors. 
  
 Example:
@@ -28,5 +28,5 @@ Example:
           L = [ {1,5}, {3,7}, {10,14}, {1,9}, {13, 20} ]
           f(L) = [ {1,7}, {10,14}, {1,9}, {13, 20} ]
 
-             L = [{1, 5}, {3, 7}, {1, 14}]
-           F(L) = [{1,14}]
+          L = [{1, 5}, {3, 7}, {1, 14}]
+          F(L) = [{1,14}]
