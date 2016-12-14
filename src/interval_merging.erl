@@ -1,0 +1,2 @@
+-module(interval_merging).
+
