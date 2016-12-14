@@ -1,4 +1,5 @@
 -module(interval_merging).
+-author(erolars).
 -export([merge/1, are_overlapping/2]).
 
 merge(Short_list) when length(Short_list) < 2 ->

@@ -1,4 +1,5 @@
 -module(tree_construction).
+-author(erolars).
 -export([construct/1]).
 -record(node, {value,
 	       left = 'NULL',

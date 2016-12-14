@@ -1,4 +1,5 @@
 -module(interval_merging_tests).
+-author(erolars).
 -include_lib("eunit/include/eunit.hrl").
 
 first_test() ->
