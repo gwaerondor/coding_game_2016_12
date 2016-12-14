@@ -11,21 +11,20 @@ construct([Root | Rest]) ->
    
 construct([], Tree) ->
     Tree;
-construct([Current | Rest], Tree) ->
-    Node = #node{value = Current},
-    Updated_tree = insert(Node, Tree),
+construct([Value | Rest], Tree) ->
+    Updated_tree = insert(Value, Tree),
     construct(Rest, Updated_tree).
     
-insert(New_node, 'NULL') ->
-    New_node;
-insert(New_node, Tree) ->
-    case New_node#node.value > Tree#node.value of
+insert(New_value, 'NULL') ->
+    #node{value = New_value};
+insert(New_value, Tree) ->
+    case New_value > Tree#node.value of
 	true ->
-	    Left = Tree#node.left,
-	    Tree#node{left = insert(New_node, Left)};
+	    Left_subtree = Tree#node.left,
+	    Tree#node{left = insert(New_value, Left_subtree)};
 	false ->
-	    Right = Tree#node.right,
-	    Tree#node{right = insert(New_node, Right)}
+	    Right_subtree = Tree#node.right,
+	    Tree#node{right = insert(New_value, Right_subtree)}
     end.	    
 
 tree_to_tuple('NULL') ->
