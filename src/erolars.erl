@@ -1,20 +1,36 @@
--module(tree_construction).
+-module(erolars).
 -author(erolars).
--export([construct/1]).
+-export([construct_tree/1, merge_intervals/1]).
 -record(node, {value,
 	       left = 'NULL',
 	       right = 'NULL'}).
 
-construct([Root | Rest]) ->
+merge_intervals(Short_list) when length(Short_list) < 2 ->
+    Short_list;
+merge_intervals([L = {L_min, L_max}, R = {R_min, R_max} | Rest]) ->
+    case are_overlapping(L, R) of
+	true ->
+	    Min = min(L_min, R_min),
+	    Max = max(L_max, R_max),
+	    Merged = {Min, Max},
+	    merge_intervals([Merged | Rest]);
+	false ->
+	    [L | merge_intervals([R | Rest])]
+    end.
+
+are_overlapping({Left_min, Left_max}, {Right_min, Right_max}) ->
+    Right_min =< Left_max andalso Right_max >= Left_min.
+
+construct_tree([Root | Rest]) ->
     Root_node = #node{value = Root},
-    Tree = construct(Rest, Root_node),
+    Tree = construct_tree(Rest, Root_node),
     tree_to_tuple(Tree).
    
-construct([], Tree) ->
+construct_tree([], Tree) ->
     Tree;
-construct([Value | Rest], Tree) ->
+construct_tree([Value | Rest], Tree) ->
     Updated_tree = insert(Value, Tree),
-    construct(Rest, Updated_tree).
+    construct_tree(Rest, Updated_tree).
     
 insert(New_value, 'NULL') ->
     #node{value = New_value};
